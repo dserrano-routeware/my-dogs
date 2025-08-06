@@ -1,5 +1,5 @@
 package com.martserra.mydogs.api.responses
 
-import com.martserra.mydogs.model.Dog
+import com.martserra.mydogs.api.dto.DogDTO
 
-class DogListResponse(val dogs: List<Dog>)
+class DogListResponse(val dogs: List<DogDTO>)

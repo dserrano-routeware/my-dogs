@@ -43,5 +43,6 @@ retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-moshi
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt" } # I don't know which version to use, so I leave it without version
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize" }
 

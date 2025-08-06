@@ -1,11 +1,13 @@
 package com.martserra.mydogs.doglist
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.martserra.mydogs.databinding.ActivityDogListBinding
+import com.martserra.mydogs.dogdetail.DogDetailActivity
 import com.martserra.mydogs.model.DogListViewModel
 
 class DogListActivity : AppCompatActivity() {
@@ -14,7 +16,7 @@ class DogListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+//        enableEdgeToEdge()
         val binding = ActivityDogListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -25,6 +27,11 @@ class DogListActivity : AppCompatActivity() {
 
         val dogAdapter = DogAdapter()
         dogRecycler.adapter = dogAdapter
+        dogAdapter.setOnItemClickListener {
+            val intent = Intent(this, DogDetailActivity::class.java)
+            intent.putExtra(DogDetailActivity.DOG_KEY, it)
+            startActivity(intent)
+        }
 
         dogListViewModel.dogList.observe(this) {
             dogList -> dogAdapter.submitList(dogList)
